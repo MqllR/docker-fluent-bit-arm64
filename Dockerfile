@@ -55,14 +55,8 @@ COPY --from=builder /usr/lib/aarch64-linux-gnu/libz* /usr/lib/aarch64-linux-gnu/
 COPY --from=builder /lib/aarch64-linux-gnu/libz* /lib/aarch64-linux-gnu/
 COPY --from=builder /usr/lib/aarch64-linux-gnu/libssl.so* /usr/lib/aarch64-linux-gnu/
 COPY --from=builder /usr/lib/aarch64-linux-gnu/libcrypto.so* /usr/lib/aarch64-linux-gnu/
-# These below are all needed for systemd
-COPY --from=builder /lib/aarch64-linux-gnu/libsystemd* /lib/aarch64-linux-gnu/
-COPY --from=builder /lib/aarch64-linux-gnu/libselinux.so* /lib/aarch64-linux-gnu/
-COPY --from=builder /lib/aarch64-linux-gnu/liblzma.so* /lib/aarch64-linux-gnu/
-COPY --from=builder /usr/lib/aarch64-linux-gnu/liblz4.so* /usr/lib/aarch64-linux-gnu/
-COPY --from=builder /lib/aarch64-linux-gnu/libgcrypt.so* /lib/aarch64-linux-gnu/
-COPY --from=builder /lib/aarch64-linux-gnu/libpcre.so* /lib/aarch64-linux-gnu/
-COPY --from=builder /lib/aarch64-linux-gnu/libgpg-error.so* /lib/aarch64-linux-gnu/
+COPY --from=builder /etc/ssl/certs /etc/ssl/certs
+COPY --from=builder /usr/share/ca-certificates /usr/share/ca-certificates
 
 COPY --from=builder /fluent-bit /fluent-bit
 
